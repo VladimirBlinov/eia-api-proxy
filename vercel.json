@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/outlooks/(.*)",
+      "destination": "/api/index.js"
+    }
+  ]
+}
