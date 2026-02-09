@@ -7,9 +7,6 @@ export default {
     //var targetUrl = "https://api.eia.gov" + url.pathname + url.search;
     var targetUrl = "https://www.eia.gov" + url.pathname + url.search;
 
-    console.log("[Request]: handled in:", request.cf.colo);
-    console.log("[Request]: country:",request.cf.country);
-
     console.log(`[Request]: Path: ${url.pathname}`);
     console.log(`[Request]: Search: ${url.search}, SearchEnc: ${decodeURIComponent(url.search)}`);
     console.log(`[Request]: SearchEnc: ${decodeURIComponent(url.search)}`);
