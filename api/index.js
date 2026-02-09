@@ -25,21 +25,17 @@ export default {
     const response = await fetch(newRequest);
     console.log(`[Response]: status: ${response.status}`);
     
-    const buffer = await response.arrayBuffer();
+    const data = await response.text();
 
     // Логируем только если нужно, преобразуя кусочек байтов в текст
-    const preview = new TextDecoder().decode(buffer.slice(-1000));
+    const preview = data.slice(-1000);
     console.log("Response Data Preview:", preview);
 
-    var resp = new TextDecoder().decode(buffer);
-
-    return new Response(JSON.stringify(resp), {
+    return new Response(data, {
+      status: response.status,
       headers: {
         'Content-Type': 'application/json',
       }
     });
-
-
-
   },
 };
