@@ -33,14 +33,9 @@ export default {
 
     var resp = new TextDecoder().decode(buffer);
 
-    var htmlResp = "<!doctype html><html><head></head><body>" + resp + "</body></html>";
-
-    console.log("HTML Data Preview:", htmlResp.slice(0,1000));
-
-    return new Response(htmlResp.slice(0,7000), {
+    return new Response(JSON.stringify(resp), {
       headers: {
         'Content-Type': 'application/json',
-        'Content-Length': new TextEncoder().encode(resp).length.toString()
       }
     });
 
