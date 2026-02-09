@@ -2,10 +2,12 @@ export default {
   async fetch(request, env) {
 
     const url = new URL(request.url);
+
+    const cleanPath = url.pathname.replace(/^\/api/, '');
     
     // Заменяем адрес воркера на адрес API EIA
     //var targetUrl = "https://api.eia.gov" + url.pathname + url.search;
-    var targetUrl = "https://www.eia.gov" + url.pathname + url.search;
+    var targetUrl = `https://www.eia.gov${cleanPath}${url.search}`;
 
     console.log(`[Request]: Path: ${url.pathname}`);
     console.log(`[Request]: Search: ${url.search}, SearchEnc: ${decodeURIComponent(url.search)}`);
